@@ -1,7 +1,5 @@
 package api
 
-_ import "regexp"
-
 // Config ...
 type Config struct {
 	Host string
