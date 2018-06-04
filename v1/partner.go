@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/launchain/api"
+	"github.com/launchain/exchange-api"
 )
 
 // Partner ...

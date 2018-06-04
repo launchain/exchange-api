@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/launchain/api"
+	"github.com/launchain/exchange-api"
 )
 
 // User ...

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/launchain/api"
+	"github.com/launchain/exchange-api"
 )
 
 // Email ...

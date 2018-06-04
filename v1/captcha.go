@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/launchain/api"
+	"github.com/launchain/exchange-api"
 )
 
 // Captcha ...

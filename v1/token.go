@@ -3,7 +3,7 @@ package v1
 import (
 	"net/url"
 
-	"github.com/launchain/api"
+	"github.com/launchain/exchange-api"
 )
 
 // Token ...
