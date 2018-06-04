@@ -1,6 +1,6 @@
 package api
 
-import "regexp"
+_ import "regexp"
 
 // Config ...
 type Config struct {
