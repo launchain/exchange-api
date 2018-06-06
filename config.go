@@ -31,5 +31,7 @@ func (c *Config) Check() {
 
 // URI ...
 func (c *Config) URI() string {
-	return "http://" + c.Host + ":" + c.Port
+	projectName := "/exchange"
+
+	return "http://" + c.Host + ":" + c.Port + projectName
 }
