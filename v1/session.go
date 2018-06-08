@@ -33,12 +33,14 @@ func NewSession(c *api.Config) *Session {
 }
 
 // SignIn ...
-func (s *Session) SignIn(phone, password, deviceID string, platform int) (*SessionResponse, error) {
+func (s *Session) SignIn(phone, password, deviceID string, platform int, captcha_id, captcha_number string) (*SessionResponse, error) {
 	data := make(url.Values)
 	data["phone"] = []string{phone}
 	data["password"] = []string{password}
 	data["device_id"] = []string{deviceID}
 	data["platform"] = []string{fmt.Sprintf("%d", platform)}
+	data["captcha_id"] = []string{captcha_id}
+	data["captcha_number"] = []string{captcha_number}
 
 	url := s.uri + "/v1/sessions"
 	out := &SessionResponse{}
