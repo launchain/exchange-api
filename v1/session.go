@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/url"
 	"time"
+	"errors"
 
 	"github.com/launchain/exchange-api"
 )
@@ -43,11 +44,18 @@ func (s *Session) SignIn(phone, password, deviceID string, platform int, captcha
 	data["captcha_number"] = []string{captcha_number}
 
 	url := s.uri + "/v1/sessions"
-	out := &SessionResponse{}
+	var out = make(map[string]interface{},2)
 	err := api.PostForm(url, data, out)
+	
 	if err != nil {
 		return nil, err
 	}
+	err = errors.New("sign in error")
+	if item,ok := out["session"];ok{
+		if session,ok := item.(SessionResponse);ok{
+			return &session, nil
+		}
+	}
 
-	return out, nil
+	return nil, err
 }
