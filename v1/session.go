@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/url"
 	"time"
-	"errors"
 
 	"github.com/launchain/exchange-api"
 )
@@ -34,28 +33,19 @@ func NewSession(c *api.Config) *Session {
 }
 
 // SignIn ...
-func (s *Session) SignIn(phone, password, deviceID string, platform int, captcha_id, captcha_number string) (*SessionResponse, error) {
+func (s *Session) SignIn(phone, password, deviceID string, platform int) (*SessionResponse, error) {
 	data := make(url.Values)
 	data["phone"] = []string{phone}
 	data["password"] = []string{password}
 	data["device_id"] = []string{deviceID}
 	data["platform"] = []string{fmt.Sprintf("%d", platform)}
-	data["captcha_id"] = []string{captcha_id}
-	data["captcha_number"] = []string{captcha_number}
 
 	url := s.uri + "/v1/sessions"
-	var out = make(map[string]interface{},2)
+	out := &SessionResponse{}
 	err := api.PostForm(url, data, out)
-	
 	if err != nil {
 		return nil, err
 	}
-	err = errors.New("sign in error")
-	if item,ok := out["session"];ok{
-		if session,ok := item.(SessionResponse);ok{
-			return &session, nil
-		}
-	}
 
-	return nil, err
+	return out, nil
 }
