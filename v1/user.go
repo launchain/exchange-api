@@ -23,6 +23,7 @@ type UserRequest struct {
 	IDCard         string
 	RealName       string
 	Portrait       string
+	WalletAddress  string
 }
 
 // UserResponse ...
@@ -151,6 +152,7 @@ func (u *User) UpdateID(id string, user *UserRequest) error {
 	data.Add("idcard", user.IDCard)
 	data.Add("realname", user.RealName)
 	data.Add("portrait", user.Portrait)
+	data.Add("wallet_address", user.WalletAddress)
 
 	url := u.uri + "/v1/users/" + id
 	return api.Patch(url, data, nil)
