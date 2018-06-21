@@ -36,6 +36,7 @@ type UserResponse struct {
 	Phone          string    `json:"phone"`
 	RealName       string    `json:"realname"`
 	IDCard         string    `json:"idcard"`
+	WalletAddress  string    `json:"wallet_address"`
 }
 
 // NewUser ...
