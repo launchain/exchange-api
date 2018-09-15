@@ -12,7 +12,7 @@ type Order struct {
 
 // Code ...
 type ShopCart struct {
-	ID        string    `json:"_id"`
+	ID        string    `json:"id"`
 	Status    int       `json:"status"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
@@ -23,7 +23,7 @@ type ShopCart struct {
 }
 
 type ShopCartResponse struct {
-	ID        string    `json:"_id"`
+	ID        string    `json:"id"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	Apikey    string    `bson:"apikey" json:"apikey"`
