@@ -2,7 +2,7 @@ package v1
 
 import (
 	"fmt"
-	"gitlab.com/asset-exchange/exchange-api"
+	"github.com/launchain/exchange-api"
 )
 
 // Order ...
