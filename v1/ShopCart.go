@@ -10,6 +10,7 @@ type ShopCart struct {
 	uri string
 }
 
+// ShopCartResponse ...
 type ShopCartResponse struct {
 	ID        string    `json:"id"`
 	CreatedAt time.Time `json:"created_at"`
@@ -18,6 +19,8 @@ type ShopCartResponse struct {
 	AssetId   string    `bson:"assetid" json:"assetid"`
 	UserId    string    `bson:"userid" json:"userid"`
 }
+
+// ShopCartsResponse
 type ShopCartsResponse struct {
 	Count int                `json:"count"`
 	Data  []ShopCartResponse `json:"data"`
