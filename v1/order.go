@@ -3,6 +3,7 @@ package v1
 import (
 	"fmt"
 	"github.com/launchain/exchange-api"
+	"time"
 )
 
 // Order ...
@@ -16,9 +17,19 @@ func NewOrder(config *api.Config) *Order {
 	return &Order{uri: uri}
 }
 
+// OrderResponse ...
+type OrderResponse struct {
+	OrderNum    string    `json:"orderNum"`
+	OrderStatus int       `json:"orderStatus"`
+	UserId      string    `json:"userid"`
+	CreatedAt   time.Time `json:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at"`
+	Remark      string    `json:"remark"`
+}
+
 // GetOneOrder ...
-func (o *Order) GetOneOrder(orderId string) (map[string]interface{}, error) {
-	out := make(map[string]interface{})
+func (o *Order) GetOneOrder(orderId string) (OrderResponse, error) {
+	var out OrderResponse
 	if orderId == "" {
 		return out, nil
 	}
@@ -26,7 +37,7 @@ func (o *Order) GetOneOrder(orderId string) (map[string]interface{}, error) {
 	url := fmt.Sprintf("%s/v1/order/detail/%s", o.uri, orderId)
 	err := api.Get(url, &out)
 	if err != nil {
-		return nil, err
+		return out, err
 	}
 	return out, nil
 }
