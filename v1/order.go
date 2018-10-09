@@ -25,6 +25,8 @@ type OrderResponse struct {
 	CreatedAt   time.Time `json:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at"`
 	Remark      string    `json:"remark"`
+	Apikey      string    `json:"apikey"`
+	AssetId     string    `json:"assetid"`
 }
 
 // GetOneOrder ...
