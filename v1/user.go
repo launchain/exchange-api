@@ -128,7 +128,7 @@ func (u *User) AutoCreate(phone string) (*UserResponse, error) {
 	data := make(url.Values)
 	data["phone"] = []string{phone}
 
-	url := u.uri + "/v1/users"
+	url := u.uri + "/v1/users/phone"
 	out := &UserResponse{}
 	err := api.PostForm(url, data, out)
 	if err != nil {
